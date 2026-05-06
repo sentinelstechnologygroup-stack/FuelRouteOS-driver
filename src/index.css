@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', sans-serif;
+    --fros-font-base: 15px;
+    --fros-font-scale: 1;
+
+    /* ── LIGHT MODE (default) ── */
+    --background: 216 22% 94%;
+    --foreground: 218 30% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 218 30% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 30% 10%;
+    --primary: 217 91% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 216 18% 88%;
+    --secondary-foreground: 218 28% 18%;
+    --muted: 216 18% 86%;
+    --muted-foreground: 218 16% 38%;
+    --accent: 38 95% 48%;
+    --accent-foreground: 0 0% 5%;
+    --destructive: 0 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 216 18% 78%;
+    --input: 216 18% 84%;
+    --ring: 217 91% 52%;
+
+    --success: 142 69% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 95% 48%;
+    --warning-foreground: 0 0% 5%;
+    --info: 217 91% 52%;
+    --info-foreground: 0 0% 100%;
+
+    --chart-1: 142 69% 36%;
+    --chart-2: 217 91% 52%;
+    --chart-3: 38 95% 48%;
+    --chart-4: 0 72% 48%;
+    --chart-5: 280 65% 55%;
+    --radius: 0.75rem;
+  }
+
+  /* ── DARK MODE ── */
+  .dark {
+    --background: 222 32% 8%;
+    --foreground: 210 22% 94%;
+    --card: 222 28% 12%;
+    --card-foreground: 210 22% 94%;
+    --popover: 222 28% 12%;
+    --popover-foreground: 210 22% 94%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 22% 18%;
+    --secondary-foreground: 210 20% 82%;
+    --muted: 222 22% 16%;
+    --muted-foreground: 215 16% 52%;
+    --accent: 38 92% 52%;
+    --accent-foreground: 0 0% 5%;
+    --destructive: 0 72% 54%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 22% 20%;
+    --input: 222 22% 20%;
+    --ring: 217 91% 60%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 52%;
+    --warning-foreground: 0 0% 5%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --chart-1: 142 71% 45%;
+    --chart-2: 217 91% 60%;
+    --chart-3: 38 92% 52%;
+    --chart-4: 0 72% 54%;
+    --chart-5: 280 65% 60%;
+  }
+
+  /* ── HIGH CONTRAST overrides ── */
+  .high-contrast {
+    --foreground: 0 0% 100%;
+    --card-foreground: 0 0% 100%;
+    --secondary-foreground: 0 0% 100%;
+    --muted-foreground: 0 0% 75%;
+    --border: 0 0% 45%;
+    --input: 0 0% 20%;
+    --card: 0 0% 8%;
+    --secondary: 0 0% 15%;
+    --background: 0 0% 4%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 217 100% 68%;
+    --primary-foreground: 0 0% 0%;
+    --success: 142 80% 52%;
+    --warning: 38 100% 58%;
+    --destructive: 0 90% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-inter;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    font-size: var(--fros-font-base);
+  }
+}
+
+/* Reduced motion */
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Large tap targets */
+.large-tap button, .large-tap a, .large-tap [role="button"] {
+  min-height: 52px !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 0px; background: transparent; }
+
+/* Signature pad */
+.signature-canvas { touch-action: none; }
+
+/* Color-blind mode: striped pending */
+.cb-mode .status-pending-stripe {
+  background-image: repeating-linear-gradient(
+    45deg, transparent, transparent 3px,
+    rgba(255,255,255,0.08) 3px, rgba(255,255,255,0.08) 6px
+  );
+}
